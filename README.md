@@ -13,3 +13,7 @@ Bindings include:
 - [ ] BASS mix
 - [ ] BASS enc
 - [ ] BASS HLS
+
+## Naming convention
+
+ For all C functions, the `BASS_` prefix is stripped for dedicated Odin procs but constants and structs still use the prefix. 

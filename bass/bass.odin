@@ -764,313 +764,211 @@ BASS_FX_VOLUME_PARAM :: struct {
     lCurve : u32,
 };
 
-@(default_calling_convention="c")
+@(link_prefix="BASS_", default_calling_convention="c")
 foreign bass {
 
-    @(link_name="BASS_SetConfig")
-    BASS_SetConfig :: proc(option : u32, value : u32) -> _c.int ---;
+        SetConfig :: proc(option : u32, value : u32) -> _c.int ---;
 
-    @(link_name="BASS_GetConfig")
-    BASS_GetConfig :: proc(option : u32) -> u32 ---;
+        GetConfig :: proc(option : u32) -> u32 ---;
 
-    @(link_name="BASS_SetConfigPtr")
-    BASS_SetConfigPtr :: proc(option : u32, value : rawptr) -> _c.int ---;
+        SetConfigPtr :: proc(option : u32, value : rawptr) -> _c.int ---;
 
-    @(link_name="BASS_GetConfigPtr")
-    BASS_GetConfigPtr :: proc(option : u32) -> rawptr ---;
+        GetConfigPtr :: proc(option : u32) -> rawptr ---;
 
-    @(link_name="BASS_GetVersion")
-    BASS_GetVersion :: proc() -> u32 ---;
+        GetVersion :: proc() -> u32 ---;
 
-    @(link_name="BASS_ErrorGetCode")
-    BASS_ErrorGetCode :: proc() -> _c.int ---;
+        ErrorGetCode :: proc() -> _c.int ---;
 
-    @(link_name="BASS_GetDeviceInfo")
-    BASS_GetDeviceInfo :: proc(device : u32, info : ^BASS_DEVICEINFO) -> _c.int ---;
+        GetDeviceInfo :: proc(device : u32, info : ^BASS_DEVICEINFO) -> _c.int ---;
 
-    @(link_name="BASS_Init")
-    BASS_Init :: proc(device : _c.int, freq : u32, flags : u32, win : rawptr, dsguid : rawptr) -> _c.int ---;
+        Init :: proc(device : _c.int, freq : u32, flags : u32, win : rawptr, dsguid : rawptr) -> _c.int ---;
 
-    @(link_name="BASS_Free")
-    BASS_Free :: proc() -> _c.int ---;
+        Free :: proc() -> _c.int ---;
 
-    @(link_name="BASS_SetDevice")
-    BASS_SetDevice :: proc(device : u32) -> _c.int ---;
+        SetDevice :: proc(device : u32) -> _c.int ---;
 
-    @(link_name="BASS_GetDevice")
-    BASS_GetDevice :: proc() -> u32 ---;
+        GetDevice :: proc() -> u32 ---;
 
-    @(link_name="BASS_GetInfo")
-    BASS_GetInfo :: proc(info : ^BASS_INFO) -> _c.int ---;
+        GetInfo :: proc(info : ^BASS_INFO) -> _c.int ---;
 
-    @(link_name="BASS_Start")
-    BASS_Start :: proc() -> _c.int ---;
+        Start :: proc() -> _c.int ---;
 
-    @(link_name="BASS_Stop")
-    BASS_Stop :: proc() -> _c.int ---;
+        Stop :: proc() -> _c.int ---;
 
-    @(link_name="BASS_Pause")
-    BASS_Pause :: proc() -> _c.int ---;
+        Pause :: proc() -> _c.int ---;
 
-    @(link_name="BASS_IsStarted")
-    BASS_IsStarted :: proc() -> u32 ---;
+        IsStarted :: proc() -> u32 ---;
 
-    @(link_name="BASS_Update")
-    BASS_Update :: proc(length : u32) -> _c.int ---;
+        Update :: proc(length : u32) -> _c.int ---;
 
-    @(link_name="BASS_GetCPU")
-    BASS_GetCPU :: proc() -> _c.float ---;
+        GetCPU :: proc() -> _c.float ---;
 
-    @(link_name="BASS_SetVolume")
-    BASS_SetVolume :: proc(volume : _c.float) -> _c.int ---;
+        SetVolume :: proc(volume : _c.float) -> _c.int ---;
 
-    @(link_name="BASS_GetVolume")
-    BASS_GetVolume :: proc() -> _c.float ---;
+        GetVolume :: proc() -> _c.float ---;
 
-    @(link_name="BASS_Set3DFactors")
-    BASS_Set3DFactors :: proc(distf : _c.float, rollf : _c.float, doppf : _c.float) -> _c.int ---;
+        Set3DFactors :: proc(distf : _c.float, rollf : _c.float, doppf : _c.float) -> _c.int ---;
 
-    @(link_name="BASS_Get3DFactors")
-    BASS_Get3DFactors :: proc(distf : ^_c.float, rollf : ^_c.float, doppf : ^_c.float) -> _c.int ---;
+        Get3DFactors :: proc(distf : ^_c.float, rollf : ^_c.float, doppf : ^_c.float) -> _c.int ---;
 
-    @(link_name="BASS_Set3DPosition")
-    BASS_Set3DPosition :: proc(pos : ^BASS_3DVECTOR, vel : ^BASS_3DVECTOR, front : ^BASS_3DVECTOR, top : ^BASS_3DVECTOR) -> _c.int ---;
+        Set3DPosition :: proc(pos : ^BASS_3DVECTOR, vel : ^BASS_3DVECTOR, front : ^BASS_3DVECTOR, top : ^BASS_3DVECTOR) -> _c.int ---;
 
-    @(link_name="BASS_Get3DPosition")
-    BASS_Get3DPosition :: proc(pos : ^BASS_3DVECTOR, vel : ^BASS_3DVECTOR, front : ^BASS_3DVECTOR, top : ^BASS_3DVECTOR) -> _c.int ---;
+        Get3DPosition :: proc(pos : ^BASS_3DVECTOR, vel : ^BASS_3DVECTOR, front : ^BASS_3DVECTOR, top : ^BASS_3DVECTOR) -> _c.int ---;
 
-    @(link_name="BASS_Apply3D")
-    BASS_Apply3D :: proc() ---;
+        Apply3D :: proc() ---;
 
-    @(link_name="BASS_PluginLoad")
-    BASS_PluginLoad :: proc(file : cstring, flags : u32) -> u32 ---;
+        PluginLoad :: proc(file : cstring, flags : u32) -> u32 ---;
 
-    @(link_name="BASS_PluginFree")
-    BASS_PluginFree :: proc(handle : u32) -> _c.int ---;
+        PluginFree :: proc(handle : u32) -> _c.int ---;
 
-    @(link_name="BASS_PluginEnable")
-    BASS_PluginEnable :: proc(handle : u32, enable : _c.int) -> _c.int ---;
+        PluginEnable :: proc(handle : u32, enable : _c.int) -> _c.int ---;
 
-    @(link_name="BASS_PluginGetInfo")
-    BASS_PluginGetInfo :: proc(handle : u32) -> ^BASS_PLUGININFO ---;
+        PluginGetInfo :: proc(handle : u32) -> ^BASS_PLUGININFO ---;
 
-    @(link_name="BASS_SampleLoad")
-    BASS_SampleLoad :: proc(mem : _c.int, file : rawptr, offset : u64, length : u32, max : u32, flags : u32) -> u32 ---;
+        SampleLoad :: proc(mem : _c.int, file : rawptr, offset : u64, length : u32, max : u32, flags : u32) -> u32 ---;
 
-    @(link_name="BASS_SampleCreate")
-    BASS_SampleCreate :: proc(length : u32, freq : u32, chans : u32, max : u32, flags : u32) -> u32 ---;
+        SampleCreate :: proc(length : u32, freq : u32, chans : u32, max : u32, flags : u32) -> u32 ---;
 
-    @(link_name="BASS_SampleFree")
-    BASS_SampleFree :: proc(handle : u32) -> _c.int ---;
+        SampleFree :: proc(handle : u32) -> _c.int ---;
 
-    @(link_name="BASS_SampleSetData")
-    BASS_SampleSetData :: proc(handle : u32, buffer : rawptr) -> _c.int ---;
+        SampleSetData :: proc(handle : u32, buffer : rawptr) -> _c.int ---;
 
-    @(link_name="BASS_SampleGetData")
-    BASS_SampleGetData :: proc(handle : u32, buffer : rawptr) -> _c.int ---;
+        SampleGetData :: proc(handle : u32, buffer : rawptr) -> _c.int ---;
 
-    @(link_name="BASS_SampleGetInfo")
-    BASS_SampleGetInfo :: proc(handle : u32, info : ^BASS_SAMPLE) -> _c.int ---;
+        SampleGetInfo :: proc(handle : u32, info : ^BASS_SAMPLE) -> _c.int ---;
 
-    @(link_name="BASS_SampleSetInfo")
-    BASS_SampleSetInfo :: proc(handle : u32, info : ^BASS_SAMPLE) -> _c.int ---;
+        SampleSetInfo :: proc(handle : u32, info : ^BASS_SAMPLE) -> _c.int ---;
 
-    @(link_name="BASS_SampleGetChannel")
-    BASS_SampleGetChannel :: proc(handle : u32, flags : u32) -> u32 ---;
+        SampleGetChannel :: proc(handle : u32, flags : u32) -> u32 ---;
 
-    @(link_name="BASS_SampleGetChannels")
-    BASS_SampleGetChannels :: proc(handle : u32, channels : ^u32) -> u32 ---;
+        SampleGetChannels :: proc(handle : u32, channels : ^u32) -> u32 ---;
 
-    @(link_name="BASS_SampleStop")
-    BASS_SampleStop :: proc(handle : u32) -> _c.int ---;
+        SampleStop :: proc(handle : u32) -> _c.int ---;
 
-    @(link_name="BASS_StreamCreate")
-    BASS_StreamCreate :: proc(freq : u32, chans : u32, flags : u32, _proc : ^STREAMPROC, user : rawptr) -> u32 ---;
+        StreamCreate :: proc(freq : u32, chans : u32, flags : u32, _proc : ^STREAMPROC, user : rawptr) -> u32 ---;
 
-    @(link_name="BASS_StreamCreateFile")
-    BASS_StreamCreateFile :: proc(mem : _c.int, file : rawptr, offset : u64, length : u64, flags : u32) -> u32 ---;
+        StreamCreateFile :: proc(mem : _c.int, file : rawptr, offset : u64, length : u64, flags : u32) -> u32 ---;
 
-    @(link_name="BASS_StreamCreateURL")
-    BASS_StreamCreateURL :: proc(url : cstring, offset : u32, flags : u32, _proc : ^DOWNLOADPROC, user : rawptr) -> u32 ---;
+        StreamCreateURL :: proc(url : cstring, offset : u32, flags : u32, _proc : ^DOWNLOADPROC, user : rawptr) -> u32 ---;
 
-    @(link_name="BASS_StreamCreateFileUser")
-    BASS_StreamCreateFileUser :: proc(system : u32, flags : u32, _proc : ^BASS_FILEPROCS, user : rawptr) -> u32 ---;
+        StreamCreateFileUser :: proc(system : u32, flags : u32, _proc : ^BASS_FILEPROCS, user : rawptr) -> u32 ---;
 
-    @(link_name="BASS_StreamFree")
-    BASS_StreamFree :: proc(handle : u32) -> _c.int ---;
+        StreamFree :: proc(handle : u32) -> _c.int ---;
 
-    @(link_name="BASS_StreamGetFilePosition")
-    BASS_StreamGetFilePosition :: proc(handle : u32, mode : u32) -> u64 ---;
+        StreamGetFilePosition :: proc(handle : u32, mode : u32) -> u64 ---;
 
-    @(link_name="BASS_StreamPutData")
-    BASS_StreamPutData :: proc(handle : u32, buffer : rawptr, length : u32) -> u32 ---;
+        StreamPutData :: proc(handle : u32, buffer : rawptr, length : u32) -> u32 ---;
 
-    @(link_name="BASS_StreamPutFileData")
-    BASS_StreamPutFileData :: proc(handle : u32, buffer : rawptr, length : u32) -> u32 ---;
+        StreamPutFileData :: proc(handle : u32, buffer : rawptr, length : u32) -> u32 ---;
 
-    @(link_name="BASS_MusicLoad")
-    BASS_MusicLoad :: proc(mem : _c.int, file : rawptr, offset : u64, length : u32, flags : u32, freq : u32) -> u32 ---;
+        MusicLoad :: proc(mem : _c.int, file : rawptr, offset : u64, length : u32, flags : u32, freq : u32) -> u32 ---;
 
-    @(link_name="BASS_MusicFree")
-    BASS_MusicFree :: proc(handle : u32) -> _c.int ---;
+        MusicFree :: proc(handle : u32) -> _c.int ---;
 
-    @(link_name="BASS_RecordGetDeviceInfo")
-    BASS_RecordGetDeviceInfo :: proc(device : u32, info : ^BASS_DEVICEINFO) -> _c.int ---;
+        RecordGetDeviceInfo :: proc(device : u32, info : ^BASS_DEVICEINFO) -> _c.int ---;
 
-    @(link_name="BASS_RecordInit")
-    BASS_RecordInit :: proc(device : _c.int) -> _c.int ---;
+        RecordInit :: proc(device : _c.int) -> _c.int ---;
 
-    @(link_name="BASS_RecordFree")
-    BASS_RecordFree :: proc() -> _c.int ---;
+        RecordFree :: proc() -> _c.int ---;
 
-    @(link_name="BASS_RecordSetDevice")
-    BASS_RecordSetDevice :: proc(device : u32) -> _c.int ---;
+        RecordSetDevice :: proc(device : u32) -> _c.int ---;
 
-    @(link_name="BASS_RecordGetDevice")
-    BASS_RecordGetDevice :: proc() -> u32 ---;
+        RecordGetDevice :: proc() -> u32 ---;
 
-    @(link_name="BASS_RecordGetInfo")
-    BASS_RecordGetInfo :: proc(info : ^BASS_RECORDINFO) -> _c.int ---;
+        RecordGetInfo :: proc(info : ^BASS_RECORDINFO) -> _c.int ---;
 
-    @(link_name="BASS_RecordGetInputName")
-    BASS_RecordGetInputName :: proc(input : _c.int) -> cstring ---;
+        RecordGetInputName :: proc(input : _c.int) -> cstring ---;
 
-    @(link_name="BASS_RecordSetInput")
-    BASS_RecordSetInput :: proc(input : _c.int, flags : u32, volume : _c.float) -> _c.int ---;
+        RecordSetInput :: proc(input : _c.int, flags : u32, volume : _c.float) -> _c.int ---;
 
-    @(link_name="BASS_RecordGetInput")
-    BASS_RecordGetInput :: proc(input : _c.int, volume : ^_c.float) -> u32 ---;
+        RecordGetInput :: proc(input : _c.int, volume : ^_c.float) -> u32 ---;
 
-    @(link_name="BASS_RecordStart")
-    BASS_RecordStart :: proc(freq : u32, chans : u32, flags : u32, _proc : ^RECORDPROC, user : rawptr) -> u32 ---;
+        RecordStart :: proc(freq : u32, chans : u32, flags : u32, _proc : ^RECORDPROC, user : rawptr) -> u32 ---;
 
-    @(link_name="BASS_ChannelBytes2Seconds")
-    BASS_ChannelBytes2Seconds :: proc(handle : u32, pos : u64) -> _c.double ---;
+        ChannelBytes2Seconds :: proc(handle : u32, pos : u64) -> _c.double ---;
 
-    @(link_name="BASS_ChannelSeconds2Bytes")
-    BASS_ChannelSeconds2Bytes :: proc(handle : u32, pos : _c.double) -> u64 ---;
+        ChannelSeconds2Bytes :: proc(handle : u32, pos : _c.double) -> u64 ---;
 
-    @(link_name="BASS_ChannelGetDevice")
-    BASS_ChannelGetDevice :: proc(handle : u32) -> u32 ---;
+        ChannelGetDevice :: proc(handle : u32) -> u32 ---;
 
-    @(link_name="BASS_ChannelSetDevice")
-    BASS_ChannelSetDevice :: proc(handle : u32, device : u32) -> _c.int ---;
+        ChannelSetDevice :: proc(handle : u32, device : u32) -> _c.int ---;
 
-    @(link_name="BASS_ChannelIsActive")
-    BASS_ChannelIsActive :: proc(handle : u32) -> u32 ---;
+        ChannelIsActive :: proc(handle : u32) -> u32 ---;
 
-    @(link_name="BASS_ChannelGetInfo")
-    BASS_ChannelGetInfo :: proc(handle : u32, info : ^BASS_CHANNELINFO) -> _c.int ---;
+        ChannelGetInfo :: proc(handle : u32, info : ^BASS_CHANNELINFO) -> _c.int ---;
 
-    @(link_name="BASS_ChannelGetTags")
-    BASS_ChannelGetTags :: proc(handle : u32, tags : u32) -> cstring ---;
+        ChannelGetTags :: proc(handle : u32, tags : u32) -> cstring ---;
 
-    @(link_name="BASS_ChannelFlags")
-    BASS_ChannelFlags :: proc(handle : u32, flags : u32, mask : u32) -> u32 ---;
+        ChannelFlags :: proc(handle : u32, flags : u32, mask : u32) -> u32 ---;
 
-    @(link_name="BASS_ChannelLock")
-    BASS_ChannelLock :: proc(handle : u32, lock : _c.int) -> _c.int ---;
+        ChannelLock :: proc(handle : u32, lock : _c.int) -> _c.int ---;
 
-    @(link_name="BASS_ChannelFree")
-    BASS_ChannelFree :: proc(handle : u32) -> _c.int ---;
+        ChannelFree :: proc(handle : u32) -> _c.int ---;
 
-    @(link_name="BASS_ChannelPlay")
-    BASS_ChannelPlay :: proc(handle : u32, restart : _c.int) -> _c.int ---;
+        ChannelPlay :: proc(handle : u32, restart : _c.int) -> _c.int ---;
 
-    @(link_name="BASS_ChannelStart")
-    BASS_ChannelStart :: proc(handle : u32) -> _c.int ---;
+        ChannelStart :: proc(handle : u32) -> _c.int ---;
 
-    @(link_name="BASS_ChannelStop")
-    BASS_ChannelStop :: proc(handle : u32) -> _c.int ---;
+        ChannelStop :: proc(handle : u32) -> _c.int ---;
 
-    @(link_name="BASS_ChannelPause")
-    BASS_ChannelPause :: proc(handle : u32) -> _c.int ---;
+        ChannelPause :: proc(handle : u32) -> _c.int ---;
 
-    @(link_name="BASS_ChannelUpdate")
-    BASS_ChannelUpdate :: proc(handle : u32, length : u32) -> _c.int ---;
+        ChannelUpdate :: proc(handle : u32, length : u32) -> _c.int ---;
 
-    @(link_name="BASS_ChannelSetAttribute")
-    BASS_ChannelSetAttribute :: proc(handle : u32, attrib : u32, value : _c.float) -> _c.int ---;
+        ChannelSetAttribute :: proc(handle : u32, attrib : u32, value : _c.float) -> _c.int ---;
 
-    @(link_name="BASS_ChannelGetAttribute")
-    BASS_ChannelGetAttribute :: proc(handle : u32, attrib : u32, value : ^_c.float) -> _c.int ---;
+        ChannelGetAttribute :: proc(handle : u32, attrib : u32, value : ^_c.float) -> _c.int ---;
 
-    @(link_name="BASS_ChannelSlideAttribute")
-    BASS_ChannelSlideAttribute :: proc(handle : u32, attrib : u32, value : _c.float, time : u32) -> _c.int ---;
+        ChannelSlideAttribute :: proc(handle : u32, attrib : u32, value : _c.float, time : u32) -> _c.int ---;
 
-    @(link_name="BASS_ChannelIsSliding")
-    BASS_ChannelIsSliding :: proc(handle : u32, attrib : u32) -> _c.int ---;
+        ChannelIsSliding :: proc(handle : u32, attrib : u32) -> _c.int ---;
 
-    @(link_name="BASS_ChannelSetAttributeEx")
-    BASS_ChannelSetAttributeEx :: proc(handle : u32, attrib : u32, value : rawptr, size : u32) -> _c.int ---;
+        ChannelSetAttributeEx :: proc(handle : u32, attrib : u32, value : rawptr, size : u32) -> _c.int ---;
 
-    @(link_name="BASS_ChannelGetAttributeEx")
-    BASS_ChannelGetAttributeEx :: proc(handle : u32, attrib : u32, value : rawptr, size : u32) -> u32 ---;
+        ChannelGetAttributeEx :: proc(handle : u32, attrib : u32, value : rawptr, size : u32) -> u32 ---;
 
-    @(link_name="BASS_ChannelSet3DAttributes")
-    BASS_ChannelSet3DAttributes :: proc(handle : u32, mode : _c.int, min : _c.float, max : _c.float, iangle : _c.int, oangle : _c.int, outvol : _c.float) -> _c.int ---;
+        ChannelSet3DAttributes :: proc(handle : u32, mode : _c.int, min : _c.float, max : _c.float, iangle : _c.int, oangle : _c.int, outvol : _c.float) -> _c.int ---;
 
-    @(link_name="BASS_ChannelGet3DAttributes")
-    BASS_ChannelGet3DAttributes :: proc(handle : u32, mode : ^u32, min : ^_c.float, max : ^_c.float, iangle : ^u32, oangle : ^u32, outvol : ^_c.float) -> _c.int ---;
+        ChannelGet3DAttributes :: proc(handle : u32, mode : ^u32, min : ^_c.float, max : ^_c.float, iangle : ^u32, oangle : ^u32, outvol : ^_c.float) -> _c.int ---;
 
-    @(link_name="BASS_ChannelSet3DPosition")
-    BASS_ChannelSet3DPosition :: proc(handle : u32, pos : ^BASS_3DVECTOR, orient : ^BASS_3DVECTOR, vel : ^BASS_3DVECTOR) -> _c.int ---;
+        ChannelSet3DPosition :: proc(handle : u32, pos : ^BASS_3DVECTOR, orient : ^BASS_3DVECTOR, vel : ^BASS_3DVECTOR) -> _c.int ---;
 
-    @(link_name="BASS_ChannelGet3DPosition")
-    BASS_ChannelGet3DPosition :: proc(handle : u32, pos : ^BASS_3DVECTOR, orient : ^BASS_3DVECTOR, vel : ^BASS_3DVECTOR) -> _c.int ---;
+        ChannelGet3DPosition :: proc(handle : u32, pos : ^BASS_3DVECTOR, orient : ^BASS_3DVECTOR, vel : ^BASS_3DVECTOR) -> _c.int ---;
 
-    @(link_name="BASS_ChannelGetLength")
-    BASS_ChannelGetLength :: proc(handle : u32, mode : u32) -> u64 ---;
+        ChannelGetLength :: proc(handle : u32, mode : u32) -> u64 ---;
 
-    @(link_name="BASS_ChannelSetPosition")
-    BASS_ChannelSetPosition :: proc(handle : u32, pos : u64, mode : u32) -> _c.int ---;
+        ChannelSetPosition :: proc(handle : u32, pos : u64, mode : u32) -> _c.int ---;
 
-    @(link_name="BASS_ChannelGetPosition")
-    BASS_ChannelGetPosition :: proc(handle : u32, mode : u32) -> u64 ---;
+        ChannelGetPosition :: proc(handle : u32, mode : u32) -> u64 ---;
 
-    @(link_name="BASS_ChannelGetLevel")
-    BASS_ChannelGetLevel :: proc(handle : u32) -> u32 ---;
+        ChannelGetLevel :: proc(handle : u32) -> u32 ---;
 
-    @(link_name="BASS_ChannelGetLevelEx")
-    BASS_ChannelGetLevelEx :: proc(handle : u32, levels : ^_c.float, length : _c.float, flags : u32) -> _c.int ---;
+        ChannelGetLevelEx :: proc(handle : u32, levels : ^_c.float, length : _c.float, flags : u32) -> _c.int ---;
 
-    @(link_name="BASS_ChannelGetData")
-    BASS_ChannelGetData :: proc(handle : u32, buffer : rawptr, length : u32) -> u32 ---;
+        ChannelGetData :: proc(handle : u32, buffer : rawptr, length : u32) -> u32 ---;
 
-    @(link_name="BASS_ChannelSetSync")
-    BASS_ChannelSetSync :: proc(handle : u32, type : u32, param : u64, _proc : ^SYNCPROC, user : rawptr) -> u32 ---;
+        ChannelSetSync :: proc(handle : u32, type : u32, param : u64, _proc : ^SYNCPROC, user : rawptr) -> u32 ---;
 
-    @(link_name="BASS_ChannelRemoveSync")
-    BASS_ChannelRemoveSync :: proc(handle : u32, sync : u32) -> _c.int ---;
+        ChannelRemoveSync :: proc(handle : u32, sync : u32) -> _c.int ---;
 
-    @(link_name="BASS_ChannelSetLink")
-    BASS_ChannelSetLink :: proc(handle : u32, chan : u32) -> _c.int ---;
+        ChannelSetLink :: proc(handle : u32, chan : u32) -> _c.int ---;
 
-    @(link_name="BASS_ChannelRemoveLink")
-    BASS_ChannelRemoveLink :: proc(handle : u32, chan : u32) -> _c.int ---;
+        ChannelRemoveLink :: proc(handle : u32, chan : u32) -> _c.int ---;
 
-    @(link_name="BASS_ChannelSetDSP")
-    BASS_ChannelSetDSP :: proc(handle : u32, _proc : ^DSPPROC, user : rawptr, priority : _c.int) -> u32 ---;
+        ChannelSetDSP :: proc(handle : u32, _proc : ^DSPPROC, user : rawptr, priority : _c.int) -> u32 ---;
 
-    @(link_name="BASS_ChannelRemoveDSP")
-    BASS_ChannelRemoveDSP :: proc(handle : u32, dsp : u32) -> _c.int ---;
+        ChannelRemoveDSP :: proc(handle : u32, dsp : u32) -> _c.int ---;
 
-    @(link_name="BASS_ChannelSetFX")
-    BASS_ChannelSetFX :: proc(handle : u32, type : u32, priority : _c.int) -> u32 ---;
+        ChannelSetFX :: proc(handle : u32, type : u32, priority : _c.int) -> u32 ---;
 
-    @(link_name="BASS_ChannelRemoveFX")
-    BASS_ChannelRemoveFX :: proc(handle : u32, fx : u32) -> _c.int ---;
+        ChannelRemoveFX :: proc(handle : u32, fx : u32) -> _c.int ---;
 
-    @(link_name="BASS_FXSetParameters")
-    BASS_FXSetParameters :: proc(handle : u32, params : rawptr) -> _c.int ---;
+        FXSetParameters :: proc(handle : u32, params : rawptr) -> _c.int ---;
 
-    @(link_name="BASS_FXGetParameters")
-    BASS_FXGetParameters :: proc(handle : u32, params : rawptr) -> _c.int ---;
+        FXGetParameters :: proc(handle : u32, params : rawptr) -> _c.int ---;
 
-    @(link_name="BASS_FXSetPriority")
-    BASS_FXSetPriority :: proc(handle : u32, priority : _c.int) -> _c.int ---;
+        FXSetPriority :: proc(handle : u32, priority : _c.int) -> _c.int ---;
 
-    @(link_name="BASS_FXReset")
-    BASS_FXReset :: proc(handle : u32) -> _c.int ---;
+        FXReset :: proc(handle : u32) -> _c.int ---;
 
 }
