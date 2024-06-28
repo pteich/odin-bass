@@ -12,6 +12,7 @@ Bindings include:
 - [x] BASS library
 - [x] BASS mix
 - [x] BASS enc
+- [x] BASS enc MP3
 - [ ] BASS HLS
 - [ ] BASS loudness
 
