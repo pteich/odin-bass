@@ -77,60 +77,60 @@ ENCODECLIENTPROC :: #type proc(handle : HENCODE, connect : BOOL, client : cstrin
 ENCODENOTIFYPROC :: #type proc(handle : HENCODE, status : DWORD, user : rawptr);
 
 @(link_prefix="BASS_", default_calling_convention="c")
-foreign bass {
+foreign bassenc {
 
-        BASS_Encode_GetVersion :: proc() -> DWORD ---;
+        Encode_GetVersion :: proc() -> DWORD ---;
 
-        BASS_Encode_Start :: proc(handle : DWORD, cmdline : cstring, flags : DWORD, _proc : ^ENCODEPROC, user : rawptr) -> HENCODE ---;
+        Encode_Start :: proc(handle : DWORD, cmdline : cstring, flags : DWORD, _proc : ^ENCODEPROC, user : rawptr) -> HENCODE ---;
 
-        BASS_Encode_StartLimit :: proc(handle : DWORD, cmdline : cstring, flags : DWORD, _proc : ^ENCODEPROC, user : rawptr, limit : DWORD) -> HENCODE ---;
+        Encode_StartLimit :: proc(handle : DWORD, cmdline : cstring, flags : DWORD, _proc : ^ENCODEPROC, user : rawptr, limit : DWORD) -> HENCODE ---;
 
-        BASS_Encode_StartUser :: proc(handle : DWORD, filename : cstring, flags : DWORD, _proc : ^ENCODERPROC, user : rawptr) -> HENCODE ---;
+        Encode_StartUser :: proc(handle : DWORD, filename : cstring, flags : DWORD, _proc : ^ENCODERPROC, user : rawptr) -> HENCODE ---;
 
-        BASS_Encode_AddChunk :: proc(handle : HENCODE, id : cstring, buffer : rawptr, length : DWORD) -> BOOL ---;
+        Encode_AddChunk :: proc(handle : HENCODE, id : cstring, buffer : rawptr, length : DWORD) -> BOOL ---;
 
-        BASS_Encode_Write :: proc(handle : DWORD, buffer : rawptr, length : DWORD) -> BOOL ---;
+        Encode_Write :: proc(handle : DWORD, buffer : rawptr, length : DWORD) -> BOOL ---;
 
-        BASS_Encode_Stop :: proc(handle : DWORD) -> BOOL ---;
+        Encode_Stop :: proc(handle : DWORD) -> BOOL ---;
 
-        BASS_Encode_StopEx :: proc(handle : DWORD, queue : BOOL) -> BOOL ---;
+        Encode_StopEx :: proc(handle : DWORD, queue : BOOL) -> BOOL ---;
 
-        BASS_Encode_SetPaused :: proc(handle : DWORD, paused : BOOL) -> BOOL ---;
+        Encode_SetPaused :: proc(handle : DWORD, paused : BOOL) -> BOOL ---;
 
-        BASS_Encode_IsActive :: proc(handle : DWORD) -> DWORD ---;
+        Encode_IsActive :: proc(handle : DWORD) -> DWORD ---;
 
-        BASS_Encode_SetNotify :: proc(handle : DWORD, _proc : ^ENCODENOTIFYPROC, user : rawptr) -> BOOL ---;
+        Encode_SetNotify :: proc(handle : DWORD, _proc : ^ENCODENOTIFYPROC, user : rawptr) -> BOOL ---;
 
-        BASS_Encode_GetCount :: proc(handle : HENCODE, count : DWORD) -> QWORD ---;
+        Encode_GetCount :: proc(handle : HENCODE, count : DWORD) -> QWORD ---;
 
-        BASS_Encode_SetChannel :: proc(handle : DWORD, channel : DWORD) -> BOOL ---;
+        Encode_SetChannel :: proc(handle : DWORD, channel : DWORD) -> BOOL ---;
 
-        BASS_Encode_GetChannel :: proc(handle : HENCODE) -> DWORD ---;
+        Encode_GetChannel :: proc(handle : HENCODE) -> DWORD ---;
 
-        BASS_Encode_UserOutput :: proc(handle : HENCODE, offset : QWORD, buffer : rawptr, length : DWORD) -> BOOL ---;
+        Encode_UserOutput :: proc(handle : HENCODE, offset : QWORD, buffer : rawptr, length : DWORD) -> BOOL ---;
 
-        BASS_Encode_GetACMFormat :: proc(handle : DWORD, form : rawptr, formlen : DWORD, title : cstring, flags : DWORD) -> DWORD ---;
+        Encode_GetACMFormat :: proc(handle : DWORD, form : rawptr, formlen : DWORD, title : cstring, flags : DWORD) -> DWORD ---;
 
-        BASS_Encode_StartACM :: proc(handle : DWORD, form : rawptr, flags : DWORD, _proc : ^ENCODEPROC, user : rawptr) -> HENCODE ---;
+        Encode_StartACM :: proc(handle : DWORD, form : rawptr, flags : DWORD, _proc : ^ENCODEPROC, user : rawptr) -> HENCODE ---;
 
-        BASS_Encode_StartACMFile :: proc(handle : DWORD, form : rawptr, flags : DWORD, filename : cstring) -> HENCODE ---;
+        Encode_StartACMFile :: proc(handle : DWORD, form : rawptr, flags : DWORD, filename : cstring) -> HENCODE ---;
 
-        BASS_Encode_StartCA :: proc(handle : DWORD, ftype : DWORD, atype : DWORD, flags : DWORD, bitrate : DWORD, _proc : ^ENCODEPROCEX, user : rawptr) -> HENCODE ---;
+        Encode_StartCA :: proc(handle : DWORD, ftype : DWORD, atype : DWORD, flags : DWORD, bitrate : DWORD, _proc : ^ENCODEPROCEX, user : rawptr) -> HENCODE ---;
 
-        BASS_Encode_StartCAFile :: proc(handle : DWORD, ftype : DWORD, atype : DWORD, flags : DWORD, bitrate : DWORD, filename : cstring) -> HENCODE ---;
+        Encode_StartCAFile :: proc(handle : DWORD, ftype : DWORD, atype : DWORD, flags : DWORD, bitrate : DWORD, filename : cstring) -> HENCODE ---;
 
-        BASS_Encode_GetCARef :: proc(handle : DWORD) -> rawptr ---;
+        Encode_GetCARef :: proc(handle : DWORD) -> rawptr ---;
 
-        BASS_Encode_CastInit :: proc(handle : HENCODE, server : cstring, pass : cstring, content : cstring, name : cstring, url : cstring, genre : cstring, desc : cstring, headers : cstring, bitrate : DWORD, flags : DWORD) -> BOOL ---;
+        Encode_CastInit :: proc(handle : HENCODE, server : cstring, pass : cstring, content : cstring, name : cstring, url : cstring, genre : cstring, desc : cstring, headers : cstring, bitrate : DWORD, flags : DWORD) -> BOOL ---;
 
-        BASS_Encode_CastSetTitle :: proc(handle : HENCODE, title : cstring, url : cstring) -> BOOL ---;
+        Encode_CastSetTitle :: proc(handle : HENCODE, title : cstring, url : cstring) -> BOOL ---;
 
-        BASS_Encode_CastSendMeta :: proc(handle : HENCODE, type : DWORD, data : rawptr, length : DWORD) -> BOOL ---;
+        Encode_CastSendMeta :: proc(handle : HENCODE, type : DWORD, data : rawptr, length : DWORD) -> BOOL ---;
 
-        BASS_Encode_CastGetStats :: proc(handle : HENCODE, type : DWORD, pass : cstring) -> cstring ---;
+        Encode_CastGetStats :: proc(handle : HENCODE, type : DWORD, pass : cstring) -> cstring ---;
 
-        BASS_Encode_ServerInit :: proc(handle : HENCODE, port : cstring, buffer : DWORD, burst : DWORD, flags : DWORD, _proc : ^ENCODECLIENTPROC, user : rawptr) -> DWORD ---;
+        Encode_ServerInit :: proc(handle : HENCODE, port : cstring, buffer : DWORD, burst : DWORD, flags : DWORD, _proc : ^ENCODECLIENTPROC, user : rawptr) -> DWORD ---;
 
-        BASS_Encode_ServerKick :: proc(handle : HENCODE, client : cstring) -> BOOL ---;
+        Encode_ServerKick :: proc(handle : HENCODE, client : cstring) -> BOOL ---;
 
 }

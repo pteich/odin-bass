@@ -10,9 +10,10 @@ Place the latest version of the lib in the same folder as your Odin code for the
 Bindings include:
 
 - [x] BASS library
-- [ ] BASS mix
+- [x] BASS mix
 - [x] BASS enc
 - [ ] BASS HLS
+- [ ] BASS loudness
 
 ## Naming convention
 
